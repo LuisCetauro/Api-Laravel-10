@@ -8,7 +8,7 @@ Também é possível deletar álbuns inteiros ou músicas separadas, fornecendo 
 
 ## Tecnologia Utilizada
 
-Esta API foi desenvolvida em PHP, utilizando o framework Laravel 10, e utiliza o banco de dados MySQL para armazenar os dados.
+Esta API foi desenvolvida em PHP 8.2.12, utilizando o framework Laravel 10, e utiliza o banco de dados MySQL para armazenar os dados.
 
 ## Requisitos de Autenticação
 
