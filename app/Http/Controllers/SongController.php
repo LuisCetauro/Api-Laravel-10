@@ -27,15 +27,24 @@ public function UmSong(Request $request, $nome){
 }   
 
 /////////////Adicionar Uma Música
-public function AdicionarSong(Request $request) {
+public function AdicionarSong(Request $request, $albumNome) {
     $data = $request->all();
     
+    // Encontre o álbum pelo nome
+    $album = Album::where('nome', $albumNome)->first(); 
+    if (!$album) {
+        return response()->json(['message' => 'Álbum não encontrado'], 404);
+    }
     
-    $song = Song::create($data);
+    // Crie a música e associe-a ao álbum
+    $song = new Song($data); // Crie uma nova instância de Song com os dados recebidos
+    $album->songs()->save($song); // Salve a música associada ao álbum
 
-    // Retorne a música criada como um recurso
-    return new SongResource($song);
+    // Retorne os dados brutos da música criada
+    return response()->json($song, 201);
 }
+
+
 
 ////////////////Deletar Uma música
 public function DeletarSong(Request $request, $albumNome, $songNome){

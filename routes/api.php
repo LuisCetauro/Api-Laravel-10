@@ -14,7 +14,7 @@ Route::delete("/Albums/{nome}",[AlbumController::class, "DeletarAlbum"]);
 
 Route::get("/Songs",[SongController::class,"TodosSongs"]);
 Route::get("/Songs/{nome}",[SongController::class,"UmSong"]);
-Route::post("/Songs",[SongController::class,"AdicionarSong"]);
+Route::post('/Albums/{albumNome}/songs',[SongController::class,"AdicionarSong"]);
 Route::delete("/Albums/{albumNome}/Songs/{songNome}", [SongController::class, "DeletarSong"]);
 
 
