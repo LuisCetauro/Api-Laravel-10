@@ -94,6 +94,8 @@ Deleta uma música de um álbum pelo nome da música e do álbum.
 
 ## Exemplos
 
+## Albuns
+
 Get Albums:
 const response = await axios.get("http://127.0.0.1:8000/albums");  
 // Resposta esperada:  
@@ -105,7 +107,15 @@ const response = await axios.get("http://127.0.0.1:8000/albums/Nome-Do-Album")
 // {data: {nome: 'Nome Do Album', ano: 'Ano de lançamento', album_id: 1, musicas: Array(número de músicas no album)}}
 
 Post Album :
-const
+const response = await axios.post("http://localhost:8000/Albums", albumData);  
+AlbumData :{  
+nome: "",  
+ano: "",  
+album_id: "",  
+}
+
+Delete Album:  
+const response = await axios.delete(`http://localhost:8000/Albums/${albumNome}`);
 
 ## Retornos HTTP
 
