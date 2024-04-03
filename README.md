@@ -8,7 +8,7 @@ Também é possível deletar álbuns inteiros ou músicas separadas, fornecendo 
 
 ## Tecnologia Utilizada
 
-Esta API foi desenvolvida em PHP, utilizando o framework Laravel 10.
+Esta API foi desenvolvida em PHP, utilizando o framework Laravel 10, e utiliza o banco de dados MySQL para armazenar os dados.
 
 ## Requisitos de Autenticação
 
@@ -120,6 +120,39 @@ Delete Album:
 const response = await axios.delete(`http://localhost:8000/Albums/${albumNome}`);
 
 ## Músicas:
+
+Get UMSong:  
+const response = await axios.get(
+`http://127.0.0.1:8000/Songs/${songProcurado}`
+);  
+// Resposta esperada:  
+//
+
+Post Song:  
+const response = await axios.post(
+`http://localhost:8000/Albums/${songData.albumNome}/songs`,
+songData
+);
+
+SongData :{  
+nome: "",  
+album_id: "",  
+trackid: "",  
+albumNome: "",  
+}
+
+Delete Song:  
+const response = await axios.delete(
+`http://localhost:8000/Albums/${songData.nomeAlbum}/Songs/${songData.nomeSong}`,
+{
+data: songData,
+}
+);
+
+SongData:{  
+nomeAlbum: "",  
+nomeSong: "",  
+}
 
 ## Retornos HTTP
 
