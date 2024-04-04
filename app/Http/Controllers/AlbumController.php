@@ -16,11 +16,10 @@ class AlbumController extends Controller
     {
         $albums = Album::with(['songs' => function ($query) {
             $query->orderBy('trackid', 'asc'); 
-        }])->orderBy('ano', 'desc')->paginate();
-
+        }])->orderBy('ano', 'desc')->get();
+    
         return AlbumsResource::collection($albums);
     }
-
 
     ////Pegar um Album//////
 
